@@ -1,0 +1,1 @@
+jdbc:mysql://${mysqlHost}:${mysqlPort?:'3306'}/${mysqlDb}?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&useInformationSchema=true&serverTimezone=GMT%2B8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false

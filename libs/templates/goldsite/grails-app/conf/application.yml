@@ -1,0 +1,203 @@
+---
+grails:
+    profile: web
+    codegen:
+        defaultPackage: quick
+    spring:
+        transactionManagement:
+            proxies: false
+    gorm:
+        reactor:
+            # Whether to translate GORM events into Reactor events
+            # Disabled by default for performance reasons
+            events: false
+info:
+    app:
+        name: '@info.app.name@'
+        version: '@info.app.version@'
+        grailsVersion: '@info.app.grailsVersion@'
+spring:
+    main:
+        banner-mode: "off"
+    groovy:
+        template:
+            check-template-location: false
+
+# Spring Actuator Endpoints are Disabled by Default
+endpoints:
+    enabled: false
+    jmx:
+        enabled: true
+
+---
+grails:
+    mime:
+        disable:
+            accept:
+                header:
+                    userAgents:
+                        - Gecko
+                        - WebKit
+                        - Presto
+                        - Trident
+        types:
+            all: '*/*'
+            atom: application/atom+xml
+            css: text/css
+            csv: text/csv
+            form: application/x-www-form-urlencoded
+            html:
+              - text/html
+              - application/xhtml+xml
+            js: text/javascript
+            json:
+              - application/json
+              - text/json
+            multipartForm: multipart/form-data
+            pdf: application/pdf
+            rss: application/rss+xml
+            text: text/plain
+            hal:
+              - application/hal+json
+              - application/hal+xml
+            xml:
+              - text/xml
+              - application/xml
+    urlmapping:
+        cache:
+            maxsize: 1000
+    controllers:
+        defaultScope: singleton
+        upload:
+            #限制上传图片2M以内
+            maxFileSize: 2097152
+            maxRequestSize: 2097152
+    converters:
+        encoding: UTF-8
+    databinding:
+        dateFormats:
+            - 'yyyy-MM-dd HH:mm:ss'
+            - 'yyyy-MM-dd'
+    views:
+        default:
+            codec: html
+        gsp:
+            encoding: UTF-8
+            htmlcodec: xml
+            codecs:
+                expression: html
+                scriptlets: html
+                taglib: none
+                staticparts: none
+endpoints:
+    jmx:
+        unique-names: true
+
+---
+hibernate:
+    cache:
+        queries: false
+        use_second_level_cache: false
+        use_query_cache: false
+dataSource:
+    pooled: true
+    jmxExport: true
+    dbCreate: none
+    dialect: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
+#    dialect: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
+    logSql: true
+    driverClassName: com.mysql.cj.jdbc.Driver
+#    driverClassName: com.p6spy.engine.spy.P6SpyDriver
+    username: test1
+    password: 'test123'
+    url:  jdbc:mysql://127.0.0.1:3306/quick?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&useInformationSchema=true&serverTimezone=GMT%2B8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false
+#    url:  jdbc:p6spy:mysql://127.0.0.1:3306/quick?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&useInformationSchema=true&serverTimezone=GMT%2B8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false
+    properties:
+        jmxEnabled: true
+        initialSize: 5
+        maxActive: 50
+        minIdle: 5
+        maxIdle: 25
+        maxWait: 10000
+        maxAge: 600000
+        timeBetweenEvictionRunsMillis: 5000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        validationQueryTimeout: 3
+        validationInterval: 15000
+        testOnBorrow: true
+        testWhileIdle: true
+        testOnReturn: false
+        jdbcInterceptors: ConnectionState
+        defaultTransactionIsolation: 2 #
+logging:
+    config: 'classpath:logback.groovy'
+
+goldsite:
+    docsUrl: 'https://goldsite.100shouhou.com'
+    servImg: true # serve images
+    uploadType: 'local'  #Options:ftp,sftp,webdav,local default:local.
+#    imgServer: 'http://localhost:8081'
+#    imgServer: 'http://192.168.0.115:8080'
+    imgServer: 'http://localhost:8080/image/get?url='
+    imgLoc: '${QUICK_UPLOADS:/Volumes/myext/temp/httpfiles}'
+#    imgLoc: '${QUICK_UPLOADS:}'
+#    imgLoc: '${QUICK_UPLOADS:/home/sftpuser1/test}'
+    officeUrl: 'http://localhost:7070'
+    licenseUrl: 'http://localhost:7070'
+    serPubKey: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClsrj91wkL9NBwlEbBcrksjmD+iWdz0ZePi7O4Ag/YfaQsWu2VhLJAq5vRkVfaxnIjBoEY52GYvwi3/wfOvDfTee6rCyt97HDS9WyHZZnSRUj49Oh7dPrsAPFPK3ajgsi/QyzSpf2TmYwIgo/G4THKGzBq7Cy1+L90lMlw+O4GlQIDAQAB'
+    mana:
+        cookieMaxAge: 604800
+    ftp:
+        host: 192.168.0.115
+        port: 21
+        user: test
+        pass: test123
+        localPassive: true
+
+ckeditor:
+    config: '/assets/myckconfig.js'
+    skipAllowedItemsCheck: false
+    defaultFileBrowser: 'ofm'
+    upload:
+        basedir: '${goldsite.imgLoc}'
+        baseurl: '${goldsite.imgServer}'
+        enableContentController: true
+        overwrite: false
+        link:
+            browser: true
+            upload: false
+            allowed:
+            denied:
+                - html
+                - html
+                - php
+                - php2
+                - ph3
+                - php5
+                - exe
+                - asp
+                - apx
+                - jsp
+                - cfm
+                - htaccess
+                - cgi
+                - sh
+                - vbs
+                - js
+                - reg
+        image:
+            browser: true
+            upload: true
+            allowed:
+                - jpg
+                - gif
+                - jpeg
+                - png
+            denied:
+        flash:
+            browser: false
+            upload: false
+            allowed:
+                - swf
+            denied:

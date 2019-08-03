@@ -1,0 +1,1 @@
+<g:set var="ctx" value="${request.contextPath}" scope="request"/>
