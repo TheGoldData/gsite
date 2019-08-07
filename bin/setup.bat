@@ -1,5 +1,13 @@
-﻿@echo off
+
+
+
+
+@echo off
+
+
+
 title GOLDSITE Server Installer and Configurer
+
 rem  金色数据配制安装程序
 
 setlocal
