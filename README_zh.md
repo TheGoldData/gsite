@@ -67,5 +67,19 @@ grails run-app
 我们提供了免费的临时许何证，你可以在[官网]( https://goldsite.100shouhou.com/)随时申请。当然我们也鼓励你花少量的钱购买许可证使用！  
   
 文档  
-====  
+==== 
+ 
+### 视频
+
+[下载和安装](https://goldsite.100shouhou.com/video?id=1)
+
+[运行项目和编辑页面](https://goldsite.100shouhou.com/video?id=2)
+
+[制作模板/皮肤](https://goldsite.100shouhou.com/video?id=3)
+
+[打包发布模板/皮肤](https://goldsite.100shouhou.com/video?id=4)
+
+[切换模板/皮肤](https://goldsite.100shouhou.com/video?id=5)
+
+
 更多内容请上金色数据官网 https://goldsite.100shouhou.com/

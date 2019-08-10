@@ -64,4 +64,17 @@ You can apply for free temporary licenses at the official website at any time. Y
  
 Documentation  
 =============  
-Please see it at https://goldsite.100shouhou.com/
+
+### Videos
+
+[Download and Setup](https://goldsite.100shouhou.com/video?id=1)
+
+[Run Your Project](https://goldsite.100shouhou.com/video?id=2)
+
+[Make Your Theme](https://goldsite.100shouhou.com/video?id=3)
+
+[Bundle and Publish Your Theme](https://goldsite.100shouhou.com/video?id=4)
+
+[Switch Your Theme](https://goldsite.100shouhou.com/video?id=5)
+
+If you want to get more, please see it at https://goldsite.100shouhou.com/
