@@ -1,17 +1,17 @@
 
   
   
-GoldSite   [中文](README_zh.md)
-=============================  
+GSite   [中文](README_zh.md)
+==========================  
   
-GoldSite is a new-generation tool for building various websites . and it is an easy quickly building tool and can be agile and quickly responsible for your business.
+GSite is a new-generation tool for building various websites . and it is an easy quickly building tool and can be agile and quickly responsible for your business.
 
-The main features of GoldSite are listed as below:
+The main features of GSite are listed as below:
 
-1. The websites which are developed by the Goldsite tool, those whole pages and contents can be changed and updated 100% completely online and automatically 
+1. The websites which are developed by the GSite tool, those whole pages and contents can be changed and updated 100% completely online and automatically 
 synchronized to other machines of its cluster,without any needs to redeploy and restart.
 
-2. Our Goldsite can make your any data from database render it out as a JSON format or web pages.
+2. Our GSite can make your any data from database render it out as a JSON format or web pages.
 
 3. Generally, you don't need to program "add/update/delete/query"  codes for something new, and also no needs to redeploy and restart. 
 You only need something to do is to create your new tables in the database,then  you can directly 
@@ -21,7 +21,7 @@ manipulate any data from the database.
 
 5. Simple and complete theme tools which include "theme make/theme zip/theme change".
 
-6. Goldsite is not a wordpress ,or a cms tool. It can be used to build any type of websites like other web frameworks.
+6. GSite is not a wordpress ,or a cms tool. It can be used to build any type of websites like other web frameworks.
   
   
 Prerequisites  
@@ -32,7 +32,7 @@ MySQL 5.0+ Server/Java SDK 1.8+
 Installation 
 ============  
   
-After you download and unzip the file. You can go to the Goldsite folder, and open your shell, runs setup.bat from directory bin/ to guide you a install process.
+After you download and unzip the file. You can go to the GSite folder, and open your shell, runs setup.bat from directory bin/ to guide you a install process.
 
 This guide will create a project, make the database import ,and one theme import for you. 
 
@@ -57,10 +57,18 @@ Or you can put the war above into tomcat to run.
   
 Once you finish to start the program, you can get access the website you just create and run.
 
+Screenshot at the front：
+
+![](./libs/images/front_en.png)
+
+
+Screenshot at the manager：
+
+![](./libs/images/mana_en.png)
 
 License
 =======
-You can apply for free temporary licenses at the official website at any time. You can also buy license to support the Goldsite project.
+You can apply for free temporary licenses at the official website at any time. You can also buy license to support the GSite project.
  
 Documentation  
 =============  
