@@ -90,7 +90,7 @@ class UserInfoController implements ControllerAssistantWithSecBase{
             entity.status=1;
         }
         entity.save(flush:true)
-        AuditLogger.log(ModuleVO.TABLE,AuditTypeVO.UPDATE,id+":status:user_info");
+        AuditLogger.log(ModuleVO.USER,AuditTypeVO.UPDATE,id+":status:user_info");
         renderOk();
     }
 

@@ -1,5 +1,7 @@
 import org.springframework.boot.web.servlet.FilterRegistrationBean
+import quick.web.filters.CustomFilter
 import quick.web.filters.RememberMeFilter
+import quick.web.filters.UserPrincipalFilter
 
 beans = {
     xmlns context:"http://www.springframework.org/schema/context"
@@ -15,5 +17,16 @@ beans = {
     }
     rememberMeFilter(RememberMeFilter) {
     }
+
+    userPrincipalFilterProxy(FilterRegistrationBean) {
+        order=29
+        urlPatterns = ['/*']
+        filter=ref('userPrincipalFilter')
+        name='userPrincipalFilter'
+    }
+    userPrincipalFilter(UserPrincipalFilter) {
+    }
+
+
 
 }

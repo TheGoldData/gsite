@@ -20,10 +20,13 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.xst.golddata.ImageHolder
 import com.xst.golddata.ThreadManager
 import com.xst.golddata.common.utils.AvatorUtils
+import com.xst.golddata.common.utils.ObjectUtils
 import com.xst.golddata.common.utils.VCodeUtils
 import com.xst.golddata.controllers.ControllerAssistant
 import com.xst.golddata.model.IpLogDaily
+import com.xst.golddata.model.Site
 import com.xst.golddata.model.UserInfo
+import com.xst.golddata.model.UserSite
 import com.xst.golddata.utils.AESUtils
 import com.xst.golddata.utils.EncryptUtils
 import com.xst.golddata.utils.I18nUtils
@@ -129,6 +132,12 @@ class UserController implements ControllerAssistant{
                 return Void
             }
 
+            if(u.pass==null){
+                addFailedRecord();
+                renderCode('error.login.wrongway')
+                return Void
+            }
+
             String encpass=EncryptUtils.hashPassword(cmd.pass,u.salt)
             if(!encpass.equals(u.pass)){
                 //set enormal state
@@ -147,7 +156,7 @@ class UserController implements ControllerAssistant{
             }
             request.session.invalidate();
 
-            request.session.setAttribute('$user',u)
+            request.session.setAttribute('$user', ObjectUtils.toMap(u))
 
             if(cmd.rememberMe==1){//记住我
                 String key=u.pass.substring(0,16)
@@ -202,6 +211,7 @@ class UserController implements ControllerAssistant{
         entity.salt=new Random().nextInt(100)
         entity.pass=EncryptUtils.hashPassword(cmd.pass,entity.salt)
         entity.status=CommonStatusVO.AVAILBLE.value
+
         BufferedImage img=AvatorUtils.gen(cmd.nickname,100,100);
         ByteArrayOutputStream bos=new ByteArrayOutputStream()
         ImageIO.write(img,'PNG',bos)
@@ -209,6 +219,14 @@ class UserController implements ControllerAssistant{
         imageHolder.save(bos.toByteArray(),path)
         entity.avator=imageHolder.encodeFullUrl(path);
         entity.save()
+        Map siteInfo=request.getAttribute('$site')
+        if(siteInfo && siteInfo.id){
+            Site site=Site.get(siteInfo.id)
+            UserSite userSite=new UserSite();
+            userSite.site=site;
+            userSite.user=entity;
+            userSite.save(flush:true);
+        }
         String msg=I18nUtils.getMessage('ok.register')
         renderOk([message:msg]);
     }
@@ -246,7 +264,7 @@ class UserController implements ControllerAssistant{
             renderCode('error.forgot.unregister')
             return Void
         }
-        String tpl=settingService.getSettingVal('mail.register',false,'')
+        String tpl=settingService.getSettingVal('mail.forgot',false,'')
         String contentTpl=I18nUtils.getMessage(tpl,tpl)
         String siteName=I18nUtils.getMessage('goldsite.siteName',servletContext.getAttribute('$siteName'))
 

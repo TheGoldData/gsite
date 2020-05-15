@@ -21,7 +21,7 @@
 <!doctype html>
 <html>
     <head>
-        <title><g:if env="development"><g:message code="goldsite.siteName" default="${application.$siteName}"/> Runtime Exception</g:if><g:else>Error</g:else></title>
+        <title><g:if env="development"><g:message code="goldsite.siteName" default="${s.site()}"/> Runtime Exception</g:if><g:else>Error</g:else></title>
         %{--<meta name="layout" content="main">--}%
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>

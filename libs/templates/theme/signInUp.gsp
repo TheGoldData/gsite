@@ -21,7 +21,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title><g:message code="goldsite.siteName" default="${application.$siteName}"/>--<g:message code="goldsite.signInUp.usercenter" default="用户中心" /></title>
+    <title><g:message code="goldsite.siteName" default="${s.site()}"/>--<g:message code="goldsite.signInUp.usercenter" default="用户中心" /></title>
     <asset:stylesheet src="common/goldsite.utils.css"/>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <asset:javascript src="common/goldsite.utils.js"></asset:javascript>
@@ -33,7 +33,7 @@
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info" >
             <div class="panel-heading">
-                <div class="panel-title"><a href="${ctx}/"><g:message code="goldsite.siteName" default="${application.$siteName}"/></a>--<g:message code="goldsite.signInUp.login" default="登录"/></div>
+                <div class="panel-title"><a href="${ctx}/"><g:message code="goldsite.siteName" default="${s.site()}"/></a>--<g:message code="goldsite.signInUp.login" default="登录"/></div>
                 <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="javascript:void 0" onclick="$('#signupbox,#loginbox').hide(); $('#forgotbox').show()" >
                     <g:message code="goldsite.signInUp.doForgotPass" default="忘记了密码?"/>
                     </a></div>
@@ -101,7 +101,7 @@
     <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <div class="panel-title"><a href="${ctx}/"><g:message code="goldsite.siteName" default="${application.$siteName}"/></a>--${g.message(code:'goldsite.signInUp.form.register')}</div>
+                <div class="panel-title"><a href="${ctx}/"><g:message code="goldsite.siteName" default="${s.site()}"/></a>--${g.message(code:'goldsite.signInUp.form.register')}</div>
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a  href="javascript:void 0" onclick="$('#signupbox,#forgotbox').hide(); $('#loginbox').show()">${g.message(code:'goldsite.signInUp.login')}</a></div>
             </div>
             <div class="panel-body" >
@@ -177,7 +177,7 @@
     <div id="forgotbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <div class="panel-title"><a href="${ctx}/"><g:message code="goldsite.siteName" default="${application.$siteName}"/></a>--${g.message(code:'goldsite.signInUp.form.retrievePass')}</div>
+                <div class="panel-title"><a href="${ctx}/"><g:message code="goldsite.siteName" default="${s.site()}"/></a>--${g.message(code:'goldsite.signInUp.form.retrievePass')}</div>
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a href="javascript:void 0" onclick="$('#signupbox,#forgotbox').hide(); $('#loginbox').show()">${g.message(code:'goldsite.signInUp.login')}</a></div>
             </div>
             <div class="panel-body" >

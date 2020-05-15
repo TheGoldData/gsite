@@ -1,5 +1,6 @@
 //= require bootstrap
-//= require bootstrap3-dialog/1.34.7/bootstrap-dialog.min
+//!= require bootstrap3-dialog/1.34.7/bootstrap-dialog.min
+//= require bootstrap3-dialog/1.35.4/bootstrap-dialog
 //= require_self
 
 /**
@@ -46,9 +47,9 @@ function initLang(){
         BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_PRIMARY] = safeGet('goldsite.lang.dialog.title.info','提示');
         BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_SUCCESS] = safeGet('goldsite.lang.dialog.title.success','成功');
         BootstrapDialog.DEFAULT_TEXTS[BootstrapDialog.TYPE_WARNING] =safeGet('goldsite.lang.dialog.title.warn','警告');
-        BootstrapDialog.DEFAULT_TEXTS['OK'] = safeGet('goldsite.lang.dialog.ok');
-        BootstrapDialog.DEFAULT_TEXTS['CANCEL'] =  safeGet('goldsite.lang.dialog.cancel');
-        BootstrapDialog.DEFAULT_TEXTS['CONFIRM'] = safeGet('goldsite.lang.dialog.confirm');
+        BootstrapDialog.DEFAULT_TEXTS['OK'] = safeGet('goldsite.lang.dialog.ok','好');
+        BootstrapDialog.DEFAULT_TEXTS['CANCEL'] =  safeGet('goldsite.lang.dialog.cancel','取消');
+        BootstrapDialog.DEFAULT_TEXTS['CONFIRM'] = safeGet('goldsite.lang.dialog.confirm','确定');
 
     }
 

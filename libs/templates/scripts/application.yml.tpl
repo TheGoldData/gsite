@@ -69,9 +69,9 @@ grails:
     controllers:
         defaultScope: singleton
         upload:
-            #限制上传图片2M以内
-            maxFileSize: 2097152
-            maxRequestSize: 2097152
+            #限制上传图片20M以内
+            maxFileSize: 20971520
+            maxRequestSize: 20971520
     converters:
         encoding: UTF-8
     databinding:
@@ -136,9 +136,10 @@ goldsite:
     licenseUrl: 'https://goldsite.100shouhou.com'
     serPubKey: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClsrj91wkL9NBwlEbBcrksjmD+iWdz0ZePi7O4Ag/YfaQsWu2VhLJAq5vRkVfaxnIjBoEY52GYvwi3/wfOvDfTee6rCyt97HDS9WyHZZnSRUj49Oh7dPrsAPFPK3ajgsi/QyzSpf2TmYwIgo/G4THKGzBq7Cy1+L90lMlw+O4GlQIDAQAB'
     servImg: true # 选项true,false 是否提供图片访问，如果提供，则imgServer必须配制成/image/get?url=
-    imgServer: '/img/get?url='
+    imgServer: '/image/get?url='
     imgLoc: '.'
     uploadType: 'local'  # 选项:ftp,sftp,webdav,local 默认:local.
+    static: '/static'
     mana:
         cookieMaxAge: 604800
     ftp:
@@ -164,6 +165,8 @@ logging:
     config: 'classpath:logback.groovy'
 
 ckeditor:
+    connectors:
+        prefix: 'mana'
     config: '/assets/myckconfig.js'
     skipAllowedItemsCheck: false
     defaultFileBrowser: 'ofm'
@@ -174,10 +177,36 @@ ckeditor:
         overwrite: false
         link:
             browser: true
-            upload: false
+            upload: true
             allowed:
-            denied:
+              - js
+              - css
               - html
+              - txt
+              - jpg
+              - jpeg
+              - png
+              - gif
+              - doc
+              - docx
+              - ppt
+              - pptx
+              - xls
+              - xlsx
+              - zip
+              - rar
+              - gz
+              - bzip2
+              - 7zip
+              - mp4
+              - 3gp
+              - mp3
+              - avi
+              - woff
+              - woff2
+              - eot
+              - ttf
+            denied:
               - html
               - php
               - php2
@@ -187,12 +216,12 @@ ckeditor:
               - asp
               - apx
               - jsp
+              - gsp
               - cfm
               - htaccess
               - cgi
               - sh
               - vbs
-              - js
               - reg
         image:
             browser: true
@@ -202,6 +231,7 @@ ckeditor:
               - gif
               - jpeg
               - png
+              - svg
             denied:
         flash:
             browser: false

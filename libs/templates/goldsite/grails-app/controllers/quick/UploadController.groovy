@@ -19,7 +19,6 @@ package quick
 import com.xst.golddata.ImageHolder
 import com.xst.golddata.command.FileUploadCommand
 import com.xst.golddata.controllers.ControllerAssistant
-import com.xst.golddata.model.UserInfo
 import grails.converters.JSON
 import org.apache.commons.io.FilenameUtils
 
@@ -33,7 +32,7 @@ class UploadController implements ControllerAssistant {
     ImageHolder imageHolder;
 
     def upload(FileUploadCommand cmd){
-        UserInfo u=request.session.getAttribute('$user')
+        Map u=request.session.getAttribute('$user')
         if(u==null){//如果没有登录。
             response.setStatus(403);
             response.flushBuffer()

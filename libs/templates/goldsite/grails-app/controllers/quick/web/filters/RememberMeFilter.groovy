@@ -17,6 +17,7 @@
 package quick.web.filters
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.xst.golddata.common.utils.ObjectUtils
 import com.xst.golddata.model.UserInfo
 import com.xst.golddata.utils.AESUtils
 import com.xst.golddata.vo.CommonStatusVO
@@ -56,7 +57,7 @@ class RememberMeFilter implements Filter {
                         if(u){
                             String key=u.pass.substring(0,16)
                             if(AESUtils.encrypt(key,userId+'').equals(map.text)){ // they equals.
-                                httpRequest.session.setAttribute('$user',u);
+                                httpRequest.session.setAttribute('$user',ObjectUtils.toMap(u));
 
                             }
                         }

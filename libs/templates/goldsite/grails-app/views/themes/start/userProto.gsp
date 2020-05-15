@@ -17,7 +17,7 @@
 <g:include view="themes/${application.$theme}/layouts/_common.gsp"/>
 <%-- ================ 用户注册协议,请根据自己的需要进行修改 start=============--%>
 <%-- ================ The page serves for 'registration protocol',You can change the content start============= --%>
-<g:set var="siteName" value="${g.message(code:'goldsite.siteName',default: application.$siteName)}"/>
+<g:set var="siteName" value="${g.message(code:'goldsite.siteName',default: s.site())}"/>
 <!DOCTYPE html>
 <html lang="zh">
 <head>

@@ -17,6 +17,8 @@
 package quick
 
 import com.xst.golddata.common.utils.VCodeUtils
+import grails.converters.JSON
+import org.springframework.http.HttpStatus
 
 import javax.imageio.ImageIO
 import javax.servlet.ServletOutputStream
@@ -40,5 +42,14 @@ class GeneralController {
         ImageIO.write(code.img, "jpeg", sos);
         sos.flush();
         sos.close();
+    }
+    def set(){
+        if (grails.util.Environment.current == grails.util.Environment.DEVELOPMENT) {
+            request.session.setAttribute('$domain',params._domain);
+            render ([status: 200] as JSON)
+        }
+        else{
+            response.sendError(HttpStatus.NOT_FOUND.value())
+        }
     }
 }
